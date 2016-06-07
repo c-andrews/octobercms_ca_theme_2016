@@ -1,0 +1,2 @@
+define(["zepto"],function($){this.appNS=this.appNS||{};var e=function(e){console.log("[ViewDefault] CONSTRUCT"),appNS._view=this,this._base=e,this._init()};return e.prototype={_base:null,_init:function(){console.log("[ViewDefault] INIT"),this._addEventListeners()},_addEventListeners:function(){$(window).on("resize",{self:this},this._onResize)},_onResize:function(e){},render:function(){}},this.appNS.ViewDefault=e,e});
+//# sourceMappingURL=./viewDefault.js.map

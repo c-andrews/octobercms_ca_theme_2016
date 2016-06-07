@@ -1,0 +1,30 @@
+description = "Header"
+
+[viewBag]
+==
+<header class="container-fluid header">
+    <div class="row">
+        <div class="col-sm-12">
+            <a class="brand" href="{{ 'home'|page }}">
+                <h1 class="brand_name">Chris Andrews</h1>
+                <h2 class="brand_title">Interactive Developer</h2>
+            </a>
+            
+            <button type="button" class="navbar-toggle collapsed" 
+                    data-toggle="collapse" 
+                    data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+            <div class="navbar-collapse collapse">
+                <ul class="nav">
+                    <li class="{% if this.page.id == 'about' %}active{% endif %}"><a href="{{ 'about'|page }}">About</a></li>
+                    <li class="{% if this.page.id == 'work' %}active{% endif %}"><a href="{{ 'work'|page }}">Work</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>

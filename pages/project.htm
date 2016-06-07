@@ -1,0 +1,79 @@
+title = "Project"
+url = "/work/:slug"
+layout = "project"
+is_hidden = 0
+
+[builderDetails]
+modelClass = "ChrisAndrews\Work\Models\Project"
+identifierValue = "{{ :slug }}"
+modelKeyColumn = "slug"
+displayColumn = "title"
+notFoundMessage = "Record not found"
+==
+{% set record = builderDetails.record %}
+{% set displayColumn = builderDetails.displayColumn %}
+{% set notFoundMessage = builderDetails.notFoundMessage %}
+
+{% if record %}
+
+
+<div class="row work_header">
+
+	<div class="col-md-12">
+	    
+	    <h1 class="work_title">{{ record.title }}</h1>
+        {% if record.tags %}
+            <h5 class="work_tags">{{ record.tags }}</h5>
+        {% endif %}
+        
+    </div>
+</div>
+    
+    
+<div class="row work_body">
+
+	<div class="col-md-12">
+        
+        {% for image in record.images %}
+            <div class="work_image">
+                <img src="{{ image.path }}" >
+            </div>
+        {% endfor %}
+        
+    </div>
+</div>    
+    
+    
+<div class="row work_body">
+
+	<div class="col-sm-4 col-md-3 work_info">    
+    
+        {% if record.link %}
+            <div class="work_detail work_link">{{ record.link|raw }}</div>
+        {% endif %}
+    
+        {% if record.role %}
+            <div class="work_detail work_role"><span class="label">Role:</span> {{ record.role }}</div>
+        {% endif %}
+        
+        {% if record.agency %}
+            <div class="work_detail work_agency"><span class="label">Agency:</span> {{ record.agency }}</div>
+        {% endif %}
+        
+        {% if record.client %}
+            <div class="work_detail work_client"><span class="label">Client:</span> {{ record.client }}</div>
+        {% endif %}
+    
+    </div>
+
+	<div class="col-sm-8">
+		<div class="work_description">
+		    {{ record.description|raw }}
+		</div>
+	</div>
+</div>
+	
+    
+{% else %}
+    <h1>{{ notFoundMessage }}</h1>
+{% endif %}

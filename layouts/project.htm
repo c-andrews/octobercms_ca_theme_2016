@@ -1,0 +1,47 @@
+description = "Project Layout"
+==
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie10 lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie10 lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie10 lt-ie9" lang=""> <![endif]-->
+<!--[if IE 9]>         <html class="no-js lt-ie10" lang=""> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <title>Chris Andrews - {{ this.page.title }}</title>
+        
+        <meta name="description" content="{{ this.page.meta_description }}">
+        <meta name="title" content="{{ this.page.meta_title }}">
+        <meta name="author" content="Chris Andrews">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="generator" content="OctoberCMS">
+        
+        <link rel="icon" type="image/png" href="{{ 'assets/images/october.png'|theme }}" />
+        
+        {% styles %}
+        <link href="{{ 'assets/css/bootstrap.css' |theme }}" rel="stylesheet">
+        <link href="{{ 'assets/css/theme.css' |theme }}" rel="stylesheet">
+        
+        <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,900italic,100italic' rel='stylesheet' type='text/css'>
+        
+    </head>
+    <body class="template_project">
+        
+        <!-- Header -->
+        {% partial "header" %}
+    
+            <!-- Content -->
+        <div class="page container-fluid">
+            {% page %}
+        </div>
+            
+        <!-- Footer -->
+        {% partial "footer" %}
+    
+        
+        <!-- Scripts -->
+        {% partial "scripts" %}
+            
+
+    </body>
+</html>

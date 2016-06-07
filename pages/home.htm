@@ -1,0 +1,56 @@
+title = "Home"
+url = "/"
+layout = "work"
+is_hidden = 0
+
+[builderList]
+modelClass = "ChrisAndrews\Work\Models\Project"
+scope = "-"
+displayColumn = "title"
+noRecordsMessage = "No records found"
+detailsPage = "project"
+detailsKeyColumn = "slug"
+detailsUrlParameter = "slug"
+pageNumber = "{{ :page }}"
+==
+{% set records = builderList.records %}
+{% set displayColumn = builderList.displayColumn %}
+{% set noRecordsMessage = builderList.noRecordsMessage %}
+{% set detailsPage = builderList.detailsPage %}
+{% set detailsKeyColumn = builderList.detailsKeyColumn %}
+{% set detailsUrlParameter = builderList.detailsUrlParameter %}
+
+
+
+<div class="row">
+    <ul class="col-sm-12">
+        {% for record in records %}
+            {% if ( record.hide == false ) %}
+                {% if record.feature_image %}
+                    <li class="work_item">
+                        {# Use spaceless tag to remove spaces inside the A tag. #}
+                        {% spaceless %}
+                            {% if detailsPage %}
+                                <a class="work_link" href="{{ detailsPage|page({ (detailsUrlParameter): attribute(record, detailsKeyColumn) }) }}">
+                                    <img class="work_image" src="{{ record.feature_image.path }}" >
+                                    <div class="work_detail">
+                                        <div class="work_detail_inner">
+                                            <div class="work_detail_content">
+                                                <h1 class="work_title">{{ record.title }}</h1>
+                                                {% if record.tags %}
+                                                    <h5 class="work_tags">{{ record.tags }}</h5>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            {% endif %}
+                        {% endspaceless %}
+                    </li>
+                {% endif %}
+            {% endif %}
+        {% else %}
+            <li class="no-data">{{ noRecordsMessage }}</li>
+        {% endfor %}
+    </ul>
+</div>

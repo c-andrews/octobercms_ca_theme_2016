@@ -1,0 +1,39 @@
+name: Work
+items:
+    -
+        title: 'Sing-a-long Selfies'
+        nesting: '0'
+        type: static-page
+        code: myMenuItem
+        reference: work-costa-sing-long-selfies
+        replace: '0'
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: 'Pesky Penguins'
+        nesting: '0'
+        type: static-page
+        url: ''
+        code: ''
+        reference: pesky-penguins
+        cmsPage: ''
+        replace: '0'
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: 'A Return To Elsewhere'
+        nesting: '0'
+        type: static-page
+        url: ''
+        code: ''
+        reference: return-elsewhere
+        cmsPage: ''
+        replace: '0'
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'

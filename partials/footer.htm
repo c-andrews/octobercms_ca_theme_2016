@@ -1,0 +1,18 @@
+description = "Footer"
+
+[viewBag]
+==
+<?php
+function onStart()
+{
+    $this["date"] = date("Y");
+}
+?>
+==
+<footer class="footer  container-fluid" >
+    <div class="row">
+        <div class="col-sm-12">
+            &copy; Chris Andrews {{ date }}
+        </div>
+    </div>
+</footer>
